@@ -23,4 +23,4 @@ calling the subProjects() method in this project.
 */
 
 version = "10.0"
-project(powershell-notifications.Project)
+project(powershell_notifications.Project)
