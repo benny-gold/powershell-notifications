@@ -1,4 +1,4 @@
-package powershell-notifications.buildTypes
+package powershell_notifications.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.v10.*
 import jetbrains.buildServer.configs.kotlin.v10.BuildFeature
@@ -10,26 +10,16 @@ import jetbrains.buildServer.configs.kotlin.v10.triggers.VcsTrigger
 import jetbrains.buildServer.configs.kotlin.v10.triggers.VcsTrigger.*
 import jetbrains.buildServer.configs.kotlin.v10.triggers.vcs
 
-object powershell-notifications_RunTests : BuildType({
+object powershell_notifications_RunTests : BuildType({
     uuid = "6fc9bd07-e9d7-421d-bbc6-9c25660714ed"
-    extId = "powershell-notifications_RunTests"
+    extId = "powershell_notifications_RunTests"
     name = "Run Tests"
 
-    artifactRules = """CouchPotato => CouchPotato
-Helpers => Helpers
-Notifications => Notifications
-Providers => Providers
-SabNZBd+ => SabNZBd+
-Sonarr => Sonarr
-Get-NewDownload.ps1
-NZB-Powershell.psm1
-NZB-Powershell.psd1
-secrets.ps1
-Classes.ps1"""
+    artifactRules = """*"""
     buildNumberPattern = "1.0.0.%build.counter%"
 
     vcs {
-        root(powershell-notifications.vcsRoots.powershell-notifications_powershell-notifications)
+        root(powershell_notifications.vcsRoots.powershell_notifications_powershell_notifications)
         checkoutMode = CheckoutMode.ON_SERVER
     }
 
@@ -69,7 +59,7 @@ Invoke-Pester -OutputFormat NUnitXml -OutputFile Tests.xml"""
             param("github_username","benny-gold")           
             param("github_password","%github.build.status%")
             param("publisherId","githubStatusPublisher")
-            param("vcsRootId","powershell-notifications_powershell-notifications")
+            param("vcsRootId","powershell_notifications_powershell_notifications")
         }
     }
 })

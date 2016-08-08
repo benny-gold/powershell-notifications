@@ -1,8 +1,8 @@
-package powershell-notifications
+package powershell_notifications
 
-import powershell-notifications.buildTypes.*
-import powershell-notifications.vcsRoots.*
-import powershell-notifications.vcsRoots.powershell-notifications_powershell-notifications
+import powershell_notifications.buildTypes.*
+import powershell_notifications.vcsRoots.*
+import powershell_notifications.vcsRoots.powershell_notifications_powershell_notifications
 import jetbrains.buildServer.configs.kotlin.v10.*
 import jetbrains.buildServer.configs.kotlin.v10.Project
 import jetbrains.buildServer.configs.kotlin.v10.ProjectFeature
@@ -13,13 +13,13 @@ import jetbrains.buildServer.configs.kotlin.v10.projectFeatures.versionedSetting
 
 object Project : Project({
     uuid = "45848e0d-45a6-4bd3-b4a0-b95c95876466"
-    extId = "powershell-notifications"
+    extId = "powershell_notifications"
     parentId = "_Root"
-    name = "powershell-notifications"
+    name = "powershell_notifications"
 
-    vcsRoot(powershell-notifications_powershell-notifications)
+    vcsRoot(powershell_notifications_powershell_notifications)
 
-    buildType(powershell-notifications_RunTests)
+    buildType(powershell_notifications_RunTests)
 
     features {
         feature {
@@ -47,10 +47,10 @@ object Project : Project({
             id = "PROJECT_EXT_5"
             mode = VersionedSettings.Mode.ENABLED
             buildSettingsMode = VersionedSettings.BuildSettingsMode.PREFER_SETTINGS_FROM_VCS 
-            rootExtId = powershell-notifications_powershell-notifications.extId
+            rootExtId = powershell_notifications_powershell_notifications.extId
             showChanges = true
             settingsFormat = VersionedSettings.Format.KOTLIN
         }
     }
-    buildTypesOrder = arrayListOf(powershell-notifications.buildTypes.powershell-notifications_RunTests, powershell-notifications.buildTypes.powershell-notifications_PerformSearches)
+    buildTypesOrder = arrayListOf(powershell_notifications.buildTypes.powershell_notifications_RunTests, powershell_notifications.buildTypes.powershell_notifications_PerformSearches)
 })
